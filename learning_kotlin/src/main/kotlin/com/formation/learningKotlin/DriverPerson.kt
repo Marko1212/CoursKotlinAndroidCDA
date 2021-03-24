@@ -10,6 +10,8 @@ data class User(val name: String, val age: Int){
     }
 }
 
+data class Address(val city: String) 
+
 fun main() {
 
     val marko = User("Marko", 47)
