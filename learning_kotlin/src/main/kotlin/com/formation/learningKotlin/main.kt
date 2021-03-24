@@ -5,8 +5,9 @@ abstract class Vehicle(val wheelsCount: Int) {
         println("Nombre de roues : $wheelsCount")
     }
     abstract fun honk()
-    companion object {
+    companion object Factory {
         fun createCar() = Car(4)
+        fun createMotorcycle() = Motorcycle(2)
     }
 }
 
@@ -30,7 +31,7 @@ class Car(wheelsCount: Int) : Vehicle(wheelsCount), Fuel {
     }
 }
 
-class Motorcycle : Vehicle(2), Trick, Fuel {
+class Motorcycle(wheelsCount: Int) : Vehicle(2), Trick, Fuel {
     override var fuelGauge: Float = 10f
 
     override fun honk() {
@@ -71,5 +72,7 @@ interface Fuel {
 
 fun main(args: Array<String>) {
     val car = Vehicle.createCar()
+
+    val moto = Vehicle.Factory.createMotorcycle()
 
 }
