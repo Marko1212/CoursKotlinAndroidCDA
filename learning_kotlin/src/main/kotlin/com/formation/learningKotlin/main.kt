@@ -10,6 +10,12 @@ abstract class Vehicle(val wheelsCount: Int) {
 class Car() : Vehicle(4), Fuel {
     override var fuelGauge: Float = 0f
 
+    inner class Engine {
+        fun displayHorsePower() {
+            println("La voiture a ${wheelsCount * 3} chevaux")
+        }
+    }
+
     override fun honk(){
         println("Pouet!")
     }
@@ -61,29 +67,7 @@ interface Fuel {
 }
 
 fun main(args: Array<String>) {
-    var v: Vehicle = Car()
-    if (v is Vehicle){
-        print("v est un véhicule ")
-        when(v){
-            is Car -> println("de type Car")
-            is Motorcycle -> println("de type Motorcycle")
-            is Bicycle -> println("de type Bicycle")
-        }
-    }
-
-    if (v is Bicycle){
-        v.wheeling()
-    }
-    if (v is Trick){
-        v.wheeling()
-    }
-
-//    val moto: Motorcycle = v as Motorcycle
-
-    val moto: Motorcycle? = v as? Motorcycle
-    moto?.fillGasTank()
-
-    (v as? Motorcycle)?.fillGasTank()
-    // Si vous êtes sûr et certain de vous alors :
-    // (v as Motorcycle).fillGasTank()
+    val car = Car()
+    val engine = car.Engine()
+    engine.displayHorsePower()
 }
