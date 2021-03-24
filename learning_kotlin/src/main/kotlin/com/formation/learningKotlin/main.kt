@@ -71,8 +71,11 @@ interface Fuel {
 }
 
 fun main(args: Array<String>) {
-    val car = Vehicle.createCar()
+    val user = Utilisateur()
 
-    val moto = Vehicle.Factory.createMotorcycle()
+    user.name = "Marko"
+    user.age = 47
+
+    println("name : ${user.name}, age: ${user.age}")
 
 }
