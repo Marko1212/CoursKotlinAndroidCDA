@@ -46,14 +46,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+/*
         findViewById<Button>(R.id.btn_start_activity_user_details).setOnClickListener{
             val intent = Intent(this, UserDetailsActivity::class.java)
 
             intent.putExtra("user", UserModel("Marko", 47))
 
             startActivity(intent)
-        }
-    }
+            */
 
+        }
     }
