@@ -9,8 +9,9 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    private val TAG = MainActivity::class.java.simpleName
+   // private val TAG = MainActivity::class.java.simpleName
 
+    /*
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -37,6 +38,22 @@ class MainActivity : AppCompatActivity() {
         Log.e(TAG, "error log")
         Log.println(Log.ASSERT, TAG, "assert log")
 
+    }
+
+
+     */
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        findViewById<Button>(R.id.btn_start_activity_user_details).setOnClickListener{
+            val intent = Intent(this, UserDetailsActivity::class.java)
+
+            intent.putExtra("user", UserModel("Marko", 47))
+
+            startActivity(intent)
+        }
     }
 
     }
