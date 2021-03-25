@@ -1,5 +1,6 @@
 package com.formation.learning_android
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,7 +16,12 @@ class MainActivity : AppCompatActivity() {
 
         val btnOpenActivityGreen: Button = findViewById(R.id.btn_open_activity_green)
 
-        btnOpenActivityGreen.setOnClickListener{println("Start green activity")}
+        btnOpenActivityGreen.setOnClickListener{
+            val intent = Intent(this, GreenActivity::class.java)
+            startActivity(intent)
+            println("Start green activity")
+
+        }
 
 
     }
