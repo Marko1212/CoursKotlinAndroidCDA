@@ -9,6 +9,7 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
+    private val TAG = MainActivity::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,11 +19,23 @@ class MainActivity : AppCompatActivity() {
 
         btnOpenActivityGreen.setOnClickListener{
             val intent = Intent(this, GreenActivity::class.java)
+            intent.action = Intent.ACTION_VIEW
+            intent.addCategory("UserViewer")
+
+            intent.putExtra("name", "Marko")
+            intent.putExtra("age", 47)
+
             startActivity(intent)
             println("Start green activity")
 
         }
 
+        Log.v(TAG, "verbose log")
+        Log.d(TAG, "debug log")
+        Log.i(TAG, "info log")
+        Log.w(TAG, "warning log")
+        Log.e(TAG, "error log")
+        Log.println(Log.ASSERT, TAG, "assert log")
 
     }
 
