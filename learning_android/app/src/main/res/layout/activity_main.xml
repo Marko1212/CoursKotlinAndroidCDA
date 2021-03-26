@@ -59,18 +59,24 @@
   <EditText
       android:layout_width="200dp"
       android:layout_height="wrap_content"
+      android:background="@color/tomato"
       android:hint="Enter name"
+
       />
     <EditText
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:inputType="number"
+        android:background="@color/tomato"
+        android:layout_marginTop="10dp"
         android:hint="Enter age"
         />
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
+        android:background="@color/tomato"
+        android:layout_marginTop="10dp"
         android:hint="Enter email"
         />
 
