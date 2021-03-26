@@ -28,10 +28,18 @@
         android:backgroundTint="#ffffff"
         android:textColor="#000000"
         android:elevation="20dp"
-        android:translationZ="20dp"
+        android:stateListAnimator="@null"
         android:drawableLeft="@drawable/baseline_flight_takeoff_black_24dp"
         android:text="Ca decolle!"
 
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
+        android:text="Ceci est un TextView"
         />
 
 </LinearLayout>
