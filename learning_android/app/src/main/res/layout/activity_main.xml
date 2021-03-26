@@ -80,4 +80,11 @@
         android:hint="Enter email"
         />
 
+    <com.formation.learning_android.MyButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Bouton créé en Kotlin"
+        />
+
 </LinearLayout>
