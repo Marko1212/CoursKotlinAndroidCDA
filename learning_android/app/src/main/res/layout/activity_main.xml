@@ -4,64 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
-<!--
-    <TextView
-        android:id="@+id/first_text"
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-       />
-
-
-
-
-
-    <Button
-        android:id="@+id/btn_open_activity_green"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Open Activity Green"
-    />
-
-     -->
-<!--
-    <Button
-        android:id="@+id/btn_start_activity_user_details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start activity user details"
-        />
-
-        -->
-
-    <!--
-    <Button
-        android:layout_width="250dp"
-        android:layout_height="100dp"
-        android:textSize="18sp"
-        android:text="wrap content"
-        />
-
-    <Button
-        android:layout_width="250dp"
-        android:layout_height="100dp"
-        android:textSize="18sp"
-        android:text="match parent horizontal"
-        />
-
--->
-
-
-<include layout = "@layout/linear_horizontal"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-
-    <include layout = "@layout/linear_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
+        android:text="Bouton"
+/>
 
 </LinearLayout>
