@@ -4,12 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".MainActivity">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
         android:text="Bouton"
 />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_flight_takeoff_black_24dp"
+        android:contentDescription="Décollage d'avion"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ffffff"
+        android:textColor="#000000"
+        android:elevation="20dp"
+        android:translationZ="20dp"
+        android:drawableLeft="@drawable/baseline_flight_takeoff_black_24dp"
+        android:text="Ca decolle!"
+
+        />
 
 </LinearLayout>
