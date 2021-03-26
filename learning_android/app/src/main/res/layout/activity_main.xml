@@ -42,4 +42,34 @@
         android:text="Ceci est un TextView"
         />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_foreground"
+        android:contentDescription="icon launcher foreground"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:paddingHorizontal="10dp"
+        android:text="Accepte les CGU / CGV" />
+
+  <EditText
+      android:layout_width="200dp"
+      android:layout_height="wrap_content"
+      android:text="Enter name"
+      />
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Enter age"
+        />
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Enter email"
+        />
+
 </LinearLayout>
