@@ -1,90 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
     <Button
+        android:id="@+id/show_dialog_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Bouton"
-/>
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_flight_takeoff_black_24dp"
-        android:contentDescription="Décollage d'avion"
+        android:text="Afficher dialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#ffffff"
-        android:textColor="#000000"
-        android:elevation="20dp"
-        android:stateListAnimator="@null"
-        android:drawableLeft="@drawable/baseline_flight_takeoff_black_24dp"
-        android:text="Ca decolle!"
-
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:textStyle="bold|italic"
-        android:text="Ceci est un TextView"
-        />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_foreground"
-        android:contentDescription="icon launcher foreground"
-        />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:paddingHorizontal="10dp"
-        android:text="Accepte les CGU / CGV" />
-
-  <EditText
-      android:layout_width="200dp"
-      android:layout_height="wrap_content"
-      android:background="@color/tomato"
-      android:hint="Enter name"
-
-      />
-    <EditText
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:background="@color/tomato"
-        android:layout_marginTop="10dp"
-        android:hint="Enter age"
-        />
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:background="@color/tomato"
-        android:layout_marginTop="10dp"
-        android:hint="Enter email"
-        />
-
-    <com.formation.learning_android.MyButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Bouton créé en Kotlin"
-        />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

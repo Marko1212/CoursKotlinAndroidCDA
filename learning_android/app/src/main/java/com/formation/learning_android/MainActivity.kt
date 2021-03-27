@@ -46,6 +46,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        findViewById<Button>(R.id.show_dialog_button).setOnClickListener {
+            val fragment = ConfirmDeleteDialogFragment()
+
+            fragment.listener = object: ConfirmDeleteListener {
+                override fun onDialogPositiveClick() {
+                    Log.i("MainActivity", "onDialogPositiveClick()")
+                }
+
+                override fun onDialogNegativeClick() {
+                    Log.i("MainActivity", "onDialogNegativeClick()")
+                }
+
+            }
+
+            fragment.show(supportFragmentManager, "confirmDelete")
+        }
+
 /*
         findViewById<Button>(R.id.btn_start_activity_user_details).setOnClickListener{
             val intent = Intent(this, UserDetailsActivity::class.java)
@@ -56,4 +74,8 @@ class MainActivity : AppCompatActivity() {
             */
 
         }
+
+
+
+
     }
