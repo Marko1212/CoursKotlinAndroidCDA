@@ -4,8 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
      */
 
+/*
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -78,6 +82,37 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+ */
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.action_add -> {
+                Toast.makeText(this, "Ajouter", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.action_save -> {
+                Toast.makeText(this, "Sauvegarder", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.action_delete -> {
+                Toast.makeText(this, "Supprimer", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.action_help -> {
+                Toast.makeText(this, "Aider", Toast.LENGTH_SHORT).show()
+                return true
+            }
+
+
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
 
 
     }
