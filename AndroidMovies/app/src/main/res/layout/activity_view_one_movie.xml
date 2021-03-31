@@ -88,6 +88,7 @@
         />
 
     <ImageView
+        android:id="@+id/one_movie_poster"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_below="@id/one_movie_description"
