@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MovieAdapter(val movies: Array<MovieData>): RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
+
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val poster = itemView.findViewById<ImageView>(R.id.cardview_poster)
         val title = itemView.findViewById<TextView>(R.id.cardview_title)
@@ -27,11 +28,11 @@ class MovieAdapter(val movies: Array<MovieData>): RecyclerView.Adapter<MovieAdap
         holder.poster.setImageResource(R.drawable.leon)
         holder.title.text = movie.title
         holder.date.text = movie.releaseDate
-        holder.note.text = "${movie.voteAverage} / 5"
+        holder.note.text = "${movie.voteAverage} / 10"
 
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return movies.size
     }
 }
