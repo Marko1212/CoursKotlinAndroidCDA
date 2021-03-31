@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/linear_gradient_one_movie"
+    >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewOneMovie">
+
+    <ImageView
+        android:id="@+id/one_movie_image"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:src="@drawable/batman"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        />
+
+    <Space
+        android:id="@+id/space_1"
+        android:layout_width="match_parent"
+        android:layout_height="211dp"
+        />
+
+    <TextView
+        android:id="@+id/one_movie_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zack Snyder's Justice League"
+        android:background="@color/primaryTextColor"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="10dp"
+        android:elevation="20dp"
+        android:padding="5dp"
+        android:layout_below="@id/space_1"
+        android:gravity="center"
+/>
+
+    <TextView
+        android:id="@+id/one_movie_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date de sortie : 31 03 2021"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:layout_below="@id/one_movie_title"
+        />
+
+    <TextView
+        android:id="@+id/one_movie_mark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Note : 4.5 / 5"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:gravity="right"
+        android:layout_toEndOf="@id/one_movie_date"
+        android:layout_below="@id/one_movie_title"
+        />
+
+    <TextView
+        android:id="@+id/one_movie_name_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description :"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_below="@id/one_movie_date"
+        />
+
+    <TextView
+        android:id="@+id/one_movie_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Coucou coucou coucou lorem ipsum"
+        android:padding="10dp"
+        android:layout_below="@id/one_movie_name_description"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_below="@id/one_movie_description"
+        android:adjustViewBounds="true"
+        android:src="@drawable/aladdin"
+/>
+
+</RelativeLayout>
+</ScrollView>
