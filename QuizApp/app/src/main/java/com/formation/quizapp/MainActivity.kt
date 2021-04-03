@@ -1,5 +1,6 @@
 package com.formation.quizapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -21,6 +22,10 @@ class MainActivity : AppCompatActivity() {
         btnStart.setOnClickListener{
                 if (etName.text.toString().isEmpty()) {
                     Toast.makeText(this, "Please enter your name", Toast.LENGTH_SHORT).show()
+                } else {
+                    val intent = Intent(this, QuizQuestionsActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
         }
 
