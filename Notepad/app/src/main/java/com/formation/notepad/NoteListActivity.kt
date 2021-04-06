@@ -1,5 +1,6 @@
 package com.formation.notepad
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -42,7 +43,16 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         if (v.tag != null) {
-            Log.i("NoteListActivity", "click sur une note de la liste")
+            showNoteDetail(v.tag as Int)
         }
     }
+
+    private fun showNoteDetail(position: Int) {
+    val note = notes[position]
+        val intent = Intent(this, NoteDetailActivity::class.java)
+        intent.putExtra(NoteDetailActivity.EXTRA_NOTE, note)
+        intent.putExtra(NoteDetailActivity.EXTRA_NOTE_INDEX, position)
+        startActivity(intent)
+    }
 }
+
