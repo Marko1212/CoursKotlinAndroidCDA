@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView android:id="@+id/card_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:focusable="true"
     android:clickable="true"
-    android:layout_margin="10dp"
-    android:backgroundTint="@color/white"
-    app:cardElevation="10dp"
     android:background="?attr/selectableItemBackground"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="10dp"
+    app:cardElevation="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -17,8 +16,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="10dp"
-        >
-
+    >
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
@@ -36,8 +34,8 @@
             android:textStyle="italic"
             android:ellipsize="end"
             android:textColor="@android:color/darker_gray"
-            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non arcu eu mi placerat gravida. Proin in metus odio. Aliquam."
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod sem mauris, sed scelerisque lectus pulvinar quis. Curabitur vitae facilisis."
             />
-    </LinearLayout>
 
+    </LinearLayout>
 </androidx.cardview.widget.CardView>
