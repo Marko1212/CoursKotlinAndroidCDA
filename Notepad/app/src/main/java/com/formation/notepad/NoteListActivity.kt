@@ -2,10 +2,12 @@ package com.formation.notepad
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 
-class NoteListActivity : AppCompatActivity() {
+class NoteListActivity : AppCompatActivity(), View.OnClickListener {
     
     lateinit var notes : MutableList<Note>
+    lateinit var adapter: NoteAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,5 +28,12 @@ class NoteListActivity : AppCompatActivity() {
                 "C'est cool aussi d'utiliser un framework pour coder une application sur différents appareils"
             )
         )
+
+        adapter = NoteAdapter(notes, this)
+
+    }
+
+    override fun onClick(v: View?) {
+        TODO("Not yet implemented")
     }
 }
