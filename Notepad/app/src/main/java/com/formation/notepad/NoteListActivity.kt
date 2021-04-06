@@ -2,6 +2,7 @@ package com.formation.notepad
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 
 class NoteListActivity : AppCompatActivity(), View.OnClickListener {
@@ -33,7 +34,9 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+    override fun onClick(v: View) {
+        if (v.tag != null) {
+            Log.i("NoteListActivity", "click sur une note de la liste")
+        }
     }
 }
