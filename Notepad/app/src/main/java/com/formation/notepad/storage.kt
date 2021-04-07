@@ -29,7 +29,7 @@ fun findAll(context: Context): MutableList<Note>{
 
     val notesDir = context.filesDir
 
-    for (filename in notesDir.list()) {
+    for (filename in notesDir.list().reversed()) {
         val note = findOne(context, filename)
         Log.i(TAG, "Read note : $note")
         notes.add(note)
