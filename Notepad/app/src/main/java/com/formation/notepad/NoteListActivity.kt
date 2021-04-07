@@ -26,7 +26,7 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
 
         findViewById<FloatingActionButton>(R.id.create_note_fab).setOnClickListener(this)
 
-       notes = loadNotes(this)
+       notes = findAll(this)
 
       //  notes.add(Note("Note 1", "Blablablabla"))
        // notes.add(Note("Course", "ne pas oublier de prendre des biscuits"))

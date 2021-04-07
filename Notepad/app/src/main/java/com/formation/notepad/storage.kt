@@ -24,13 +24,13 @@ fun persistNote(context: Context, note: Note) {
 
 }
 
-fun loadNotes(context: Context): MutableList<Note>{
+fun findAll(context: Context): MutableList<Note>{
     val notes = mutableListOf<Note>()
 
     val notesDir = context.filesDir
 
     for (filename in notesDir.list()) {
-        val note = loadNote(context, filename)
+        val note = findOne(context, filename)
         Log.i(TAG, "Read note : $note")
         notes.add(note)
     }
@@ -38,7 +38,7 @@ fun loadNotes(context: Context): MutableList<Note>{
     return notes
 }
 
-private fun loadNote(context: Context, filename: String): Note {
+private fun findOne(context: Context, filename: String): Note {
 
     val fileInput = context.openFileInput(filename)
     val inputStream = ObjectInputStream(fileInput)
