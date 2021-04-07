@@ -30,7 +30,13 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
         findViewById<FloatingActionButton>(R.id.create_note_fab).setOnClickListener(this)
 
         coordinateLayout = findViewById(R.id.coordinate_layout)
-       notes = findAll(this)
+
+        //findAll lecture dans le dossier
+        notes = findAll(this)
+
+        //findAll db
+        //val db = Database(this)
+        //notes = db.findAll()
 
       //  notes.add(Note("Note 1", "Blablablabla"))
        // notes.add(Note("Course", "ne pas oublier de prendre des biscuits"))
@@ -110,18 +116,28 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
             return
         }
         val note = notes[noteIndex]
+        // delete the file
         deleteFile(this, note)
+        //delete in db
+        val db = Database(this)
+        db.deleteNote(note)
         Snackbar.make(coordinateLayout, "${note.title} supprimé", Snackbar.LENGTH_LONG).show()
         notes.removeAt(noteIndex)
         adapter.notifyDataSetChanged()
     }
 
     private fun saveNote(note: Note, noteIndex: Int) {
+        // persister dans un fichier
         persistNote(this, note)
+        // save and create db
+        val db = Database(this)
+
         if (noteIndex < 0) {
             notes.add(0, note)
+            db.createNote(note)
         } else {
             notes[noteIndex] = note
+            db.updateNote(note)
         }
         adapter.notifyDataSetChanged()
     }
