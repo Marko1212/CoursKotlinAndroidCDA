@@ -8,8 +8,8 @@ import java.util.*
 
 private val TAG = "storage"
 
-fun persistNote(context: Context, note: Note) {
-    if (note.filename.isEmpty()) {
+fun persistNote(context: Context, note: Note){
+    if (note.filename.isEmpty()){
         note.filename = UUID.randomUUID().toString() + ".note"
     }
 
@@ -18,18 +18,16 @@ fun persistNote(context: Context, note: Note) {
     val fileOutput = context.openFileOutput(note.filename, Context.MODE_PRIVATE)
 
     val outputStream = ObjectOutputStream(fileOutput)
-
     outputStream.writeObject(note)
     outputStream.close()
-
 }
 
-fun findAll(context: Context): MutableList<Note>{
+fun findAll(context: Context) : MutableList<Note>{
     val notes = mutableListOf<Note>()
 
     val notesDir = context.filesDir
 
-    for (filename in notesDir.list().reversed()) {
+    for (filename in notesDir.list().reversed()){
         val note = findOne(context, filename)
         Log.i(TAG, "Read note : $note")
         notes.add(note)
@@ -38,15 +36,16 @@ fun findAll(context: Context): MutableList<Note>{
     return notes
 }
 
-fun deleteFile(context: Context, note: Note) {
+fun deleteFile(context: Context, note: Note){
     context.deleteFile(note.filename)
 }
 
 private fun findOne(context: Context, filename: String): Note {
-
     val fileInput = context.openFileInput(filename)
     val inputStream = ObjectInputStream(fileInput)
     val note = inputStream.readObject() as Note
     inputStream.close()
     return note
 }
+
+

@@ -8,14 +8,17 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 
 class NoteListActivity : AppCompatActivity(), View.OnClickListener {
 
     lateinit var notes: MutableList<Note>
     lateinit var adapter: NoteAdapter
+    lateinit var coordinateLayout: CoordinatorLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +29,7 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
 
         findViewById<FloatingActionButton>(R.id.create_note_fab).setOnClickListener(this)
 
+        coordinateLayout = findViewById(R.id.coordinate_layout)
        notes = findAll(this)
 
       //  notes.add(Note("Note 1", "Blablablabla"))
@@ -105,7 +109,9 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
         if (noteIndex < 0) {
             return
         }
-        deleteFile(this, notes[noteIndex])
+        val note = notes[noteIndex]
+        deleteFile(this, note)
+        Snackbar.make(coordinateLayout, "${note.title} supprimé", Snackbar.LENGTH_LONG).show()
         notes.removeAt(noteIndex)
         adapter.notifyDataSetChanged()
     }

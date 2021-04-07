@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/coordinate_layout"
+    >
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NoteListActivity">
@@ -22,15 +29,17 @@
         tools:listitem="@layout/item_note"
         />
 
+</RelativeLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/create_note_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_gravity="right|bottom"
         android:layout_margin="16dp"
         android:src="@drawable/baseline_add_white_36"
         android:contentDescription="Ajout d'une note"
+        app:layout_anchorGravity="right|bottom"
         />
 
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
