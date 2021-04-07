@@ -38,6 +38,10 @@ fun findAll(context: Context): MutableList<Note>{
     return notes
 }
 
+fun deleteFile(context: Context, note: Note) {
+    context.deleteFile(note.filename)
+}
+
 private fun findOne(context: Context, filename: String): Note {
 
     val fileInput = context.openFileInput(filename)
