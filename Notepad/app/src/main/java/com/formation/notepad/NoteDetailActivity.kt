@@ -17,6 +17,9 @@ class NoteDetailActivity : AppCompatActivity() {
         val REQUEST_EDIT_NOTE = 1
         val EXTRA_NOTE = "note"
         val EXTRA_NOTE_INDEX = "noteIndex"
+
+        val ACTION_SAVE_NOTE = "com.formation.notepad.actions.ACTION_SAVE_NOTE"
+        val ACTION_DELETE_NOTE = "com.formation.notepad.actions.ACTION_DELETE_NOTE"
     }
 
     lateinit var note: Note
@@ -79,6 +82,10 @@ class NoteDetailActivity : AppCompatActivity() {
     }
 
     private fun deleteNote() {
+        intent = Intent(ACTION_DELETE_NOTE)
+        intent.putExtra(EXTRA_NOTE_INDEX, noteIndex)
+        setResult(Activity.RESULT_OK, intent)
+        finish()
 
     }
 
@@ -86,7 +93,9 @@ class NoteDetailActivity : AppCompatActivity() {
         note.title = title.text.toString()
         note.text = text.text.toString()
 
-        intent = Intent()
+
+
+        intent = Intent(ACTION_SAVE_NOTE)
         intent.putExtra(EXTRA_NOTE, note)
         intent.putExtra(EXTRA_NOTE_INDEX, noteIndex)
         setResult(Activity.RESULT_OK, intent)
