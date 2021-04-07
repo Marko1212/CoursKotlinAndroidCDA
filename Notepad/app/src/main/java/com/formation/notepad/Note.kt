@@ -2,12 +2,16 @@ package com.formation.notepad
 
 import android.os.Parcel
 import android.os.Parcelable
+import java.io.Serializable
 
 data class Note(
     var title: String = "",
     var text: String = "",
-    var fileName: String = ""
-) : Parcelable {
+    var filename: String = ""
+) : Parcelable, Serializable {
+
+    private val serialVersionUid: Long = 42424242424242L
+
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!,
@@ -17,7 +21,7 @@ data class Note(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(title)
         parcel.writeString(text)
-        parcel.writeString(fileName)
+        parcel.writeString(filename)
     }
 
     override fun describeContents(): Int {

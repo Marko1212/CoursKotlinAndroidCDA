@@ -3,6 +3,7 @@ package com.formation.notepad
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -25,21 +26,22 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
 
         findViewById<FloatingActionButton>(R.id.create_note_fab).setOnClickListener(this)
 
-        notes = mutableListOf()
-        notes.add(Note("Note 1", "Blablablabla"))
-        notes.add(Note("Course", "ne pas oublier de prendre des biscuits"))
-        notes.add(
-                Note(
-                        "Android Kotlin",
-                        "C'est cool de faire de l'android, même si ce n'est pas toujours simple"
-                )
-        )
-        notes.add(
-                Note(
-                        "Flutter",
-                        "C'est cool aussi d'utiliser un framework pour coder une application sur différents appareils"
-                )
-        )
+       notes = loadNotes(this)
+
+      //  notes.add(Note("Note 1", "Blablablabla"))
+       // notes.add(Note("Course", "ne pas oublier de prendre des biscuits"))
+       // notes.add(
+         //       Note(
+           //             "Android Kotlin",
+             //           "C'est cool de faire de l'android, même si ce n'est pas toujours simple"
+               // )
+       // )
+       // notes.add(
+         //       Note(
+           //             "Flutter",
+             //           "C'est cool aussi d'utiliser un framework pour coder une application sur différents appareils"
+               // )
+        // )
 
         adapter = NoteAdapter(notes, this)
 
@@ -66,7 +68,7 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
         val note = if (position < 0) Note() else notes[position]
 
         val intent = Intent(this, NoteDetailActivity::class.java)
-        intent.putExtra(NoteDetailActivity.EXTRA_NOTE, note)
+        intent.putExtra(NoteDetailActivity.EXTRA_NOTE, note as Parcelable)
         intent.putExtra(NoteDetailActivity.EXTRA_NOTE_INDEX, position)
         startActivityForResult(intent, NoteDetailActivity.REQUEST_EDIT_NOTE)
     }
@@ -108,6 +110,7 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun saveNote(note: Note, noteIndex: Int) {
+        persistNote(this, note)
         if (noteIndex < 0) {
             notes.add(0, note)
         } else {
