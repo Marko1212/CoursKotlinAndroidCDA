@@ -105,8 +105,8 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
         if (noteIndex < 0) {
             return
         }
-        notes.removeAt(noteIndex)
         deleteFile(this, notes[noteIndex])
+        notes.removeAt(noteIndex)
         adapter.notifyDataSetChanged()
     }
 
