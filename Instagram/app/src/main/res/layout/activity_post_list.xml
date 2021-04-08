@@ -4,23 +4,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".PostListActivity"
-    android:padding="70dp"
-    >
+    android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_post"
-/>
+        tools:context=".PostListActivity"
+        android:paddingBottom="70dp"
+        >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_post"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include layout="@layout/bottom_app_bar" />
 
@@ -33,4 +33,5 @@
         app:maxImageSize="35dp"
         android:contentDescription="Post Add"
         />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
