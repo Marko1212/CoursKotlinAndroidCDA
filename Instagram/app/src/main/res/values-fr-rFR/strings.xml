@@ -3,4 +3,6 @@
     <string name="app_name">Instagram</string>
     <string name="bot_app_bar_home">Accueil</string>
     <string name="bot_app_bar_user">Utilisateur</string>
+    <string name="user_intro">Choisis ton pseudo : %1$s</string>
+    <string name="edit_user_nickname">Pseudo</string>
 </resources>

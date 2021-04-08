@@ -9,10 +9,11 @@ import android.widget.TextView
 import androidx.appcompat.view.menu.MenuView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.formation.instagram.R
 import com.formation.instagram.models.PostModel
+import com.formation.instagram.utils.GlideBlurTransformation
 import com.google.android.material.imageview.ShapeableImageView
-import com.squareup.picasso.Picasso
 
 class PostAdapter(val posts: List<PostModel>): RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
@@ -35,16 +36,20 @@ class PostAdapter(val posts: List<PostModel>): RecyclerView.Adapter<PostAdapter.
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val post = posts[position]
+        val context = holder.avatar.context
+
         holder.avatar.setImageResource(R.drawable.avatar)
         holder.nickname.text = post.user?.nickname
-        //holder.imagePostBlur.setImageResource(R.drawable.femme_montagne)
         holder.imagePost.setImageResource(R.drawable.femme_montagne)
         holder.imageLike.setImageResource(R.drawable.heart_void)
         holder.nbrLike.text = "${post.users?.size} like(s)"
         holder.description.text = post.description
 
-        Picasso.get().load(R.drawable.femme_montagne)
-            .transform(BlurTransformation(context, 2)).into(holder.imagePostBlur)
+        Glide.with(context)
+            .load(R.drawable.femme_montagne)
+            .transform(
+                GlideBlurTransformation(context))
+            .into(holder.imagePostBlur)
     }
 
     override fun getItemCount(): Int {

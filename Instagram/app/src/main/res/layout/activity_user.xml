@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,16 +10,34 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PostListActivity"
-    android:padding="70dp"
-    >
+    tools:context=".UserActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <TextView
+        android:id="@+id/user_intro"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_post"
-/>
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/edit_user_nickname"
+        android:text="@string/user_intro"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="23sp"
+        app:layout_constraintVertical_chainStyle="packed"
+        />
+
+    <EditText
+        android:id="@+id/edit_user_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_intro"
+        android:hint="@string/edit_user_nickname"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -33,4 +52,5 @@
         app:maxImageSize="35dp"
         android:contentDescription="Post Add"
         />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
