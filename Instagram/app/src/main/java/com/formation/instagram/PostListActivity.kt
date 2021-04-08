@@ -2,6 +2,8 @@ package com.formation.instagram
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.formation.instagram.adapters.PostAdapter
 import com.formation.instagram.models.PostModel
 import com.formation.instagram.models.UserModel
@@ -24,5 +26,10 @@ class PostListActivity : AppCompatActivity() {
         posts.add(
                 PostModel(2L, UserModel("marko askovic", null), null, listOf("marko","toto","titi", "y", "u", "o", "i"), "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, consequatur dele")
         )
+
+        adapter = PostAdapter(posts)
+        val rv = findViewById<RecyclerView>(R.id.recycler_view)
+        rv.layoutManager = LinearLayoutManager(this)
+        rv.adapter = adapter
     }
 }
