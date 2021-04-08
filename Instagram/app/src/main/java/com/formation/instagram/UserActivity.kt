@@ -19,9 +19,9 @@ class UserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
 
-      //  val bottomNavigationView =  findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
-       // val actionUser = bottomNavigationView.menu.getItem(2)
-       // actionUser.isEnabled=true
+       val bottomNavigationView =  findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+       val actionUser = bottomNavigationView.menu.findItem(R.id.action_user)
+       actionUser.isChecked=true
 
         userIntro = findViewById(R.id.user_intro)
         userEditText = findViewById(R.id.edit_user_nickname)
