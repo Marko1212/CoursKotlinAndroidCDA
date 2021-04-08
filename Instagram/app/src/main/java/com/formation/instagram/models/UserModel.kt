@@ -11,8 +11,7 @@ data class UserModel(
 ): Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readString()!!,
-            parcel.readParcelable(Bitmap::class.java.classLoader)) {
-    }
+            parcel.readParcelable(Bitmap::class.java.classLoader))
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(nickname)

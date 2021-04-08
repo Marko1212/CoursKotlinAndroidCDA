@@ -6,20 +6,19 @@ import android.os.Parcelable
 
 data class PostModel(
         val id: Long,
-        val user: UserModel,
-        val image: Bitmap,
+        val user: UserModel?,
+        val image: Bitmap?,
         // list de pseudo(s) pour savoir le nbr de likes total et connaître
         // si j'ai moi-même liké cette photo
-        val users: List<String>,
-        val description: String
+        val users: List<String>?,
+        val description: String?
 ): Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readLong(),
             parcel.readParcelable(UserModel::class.java.classLoader),
             parcel.readParcelable(Bitmap::class.java.classLoader),
             parcel.createStringArrayList(),
-            parcel.readString()) {
-    }
+            parcel.readString())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeLong(id)
