@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Instagram fake</string>
+    <string name="app_name">Instagram</string>
+    <string name="bot_app_bar_home">Home</string>
+    <string name="bot_app_bar_user">User</string>
 </resources>
