@@ -1,5 +1,6 @@
 package com.formation.instagram.adapters
 
+import android.graphics.BlurMaskFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.formation.instagram.R
 import com.formation.instagram.models.PostModel
 import com.google.android.material.imageview.ShapeableImageView
+import com.squareup.picasso.Picasso
 
 class PostAdapter(val posts: List<PostModel>): RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
@@ -35,11 +37,14 @@ class PostAdapter(val posts: List<PostModel>): RecyclerView.Adapter<PostAdapter.
         val post = posts[position]
         holder.avatar.setImageResource(R.drawable.avatar)
         holder.nickname.text = post.user?.nickname
-        holder.imagePostBlur.setImageResource(R.drawable.femme_montagne)
+        //holder.imagePostBlur.setImageResource(R.drawable.femme_montagne)
         holder.imagePost.setImageResource(R.drawable.femme_montagne)
         holder.imageLike.setImageResource(R.drawable.heart_void)
         holder.nbrLike.text = "${post.users?.size} like(s)"
         holder.description.text = post.description
+
+        Picasso.get().load(R.drawable.femme_montagne)
+            .transform(BlurTransformation(context, 2)).into(holder.imagePostBlur)
     }
 
     override fun getItemCount(): Int {
