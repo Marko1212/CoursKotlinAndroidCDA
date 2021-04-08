@@ -38,7 +38,7 @@ class UserActivity : AppCompatActivity() {
         actionUser.isChecked = true
 
         userIntro = findViewById(R.id.user_intro)
-        userEditText = findViewById(R.id.user_edit_nickname)
+        userEditText = findViewById(R.id.edit_user_nickname)
 
         userIntro.text = getString(R.string.user_intro, getNicknameSharedPreference())
         userEditText.hint = getNicknameSharedPreference()
