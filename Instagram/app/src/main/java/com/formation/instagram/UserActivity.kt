@@ -26,6 +26,7 @@ class UserActivity : AppCompatActivity() {
     lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
 
@@ -79,9 +80,10 @@ class UserActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when(item.itemId){
                 R.id.action_home -> {
-//                    val intent = Intent(this, PostListActivity::class.java)
-//                    startActivity(intent)
-                    finish()
+
+                    val intent = Intent(this, PostListActivity::class.java)
+                    startActivity(intent)
+                //    finish()
                     true
                 }
                 else -> false

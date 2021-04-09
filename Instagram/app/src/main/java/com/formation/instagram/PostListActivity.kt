@@ -43,6 +43,10 @@ class PostListActivity : AppCompatActivity(), View.OnClickListener {
     private fun bottomNavigationViewAction(){
         bottomNavigationView = findViewById(R.id.bottom_navigation_view)
 
+        bottomNavigationView
+                .menu
+                .findItem(R.id.action_home).isChecked = true
+
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             Log.i("PostListActivity", "click sur action_user")
             when (item.itemId) {
