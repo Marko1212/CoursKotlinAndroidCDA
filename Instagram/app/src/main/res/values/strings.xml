@@ -4,4 +4,6 @@
     <string name="bot_app_bar_user">User</string>
     <string name="user_intro">Choose your nickname : %1$s</string>
     <string name="edit_user_nickname">Nickname</string>
+    <string name="description_text_length">%1$d / 280</string>
+    <string name="btn_open_gallery">Open Gallery</string>
 </resources>

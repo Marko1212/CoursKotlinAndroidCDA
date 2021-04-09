@@ -9,8 +9,84 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="90dp"
         >
 
+        <TextView
+            android:id="@+id/nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Marko Askovic"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/description"
+            android:layout_marginTop="8dp"
+            />
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto, at autem corporis, cumque dolorem dolorum earum ipsa iste laudantium nam nemo officia officiis provident unde voluptatem voluptates. Modi, quo."
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nickname"
+            app:layout_constraintBottom_toTopOf="@id/description_count"
+            android:maxLength="280"
+            />
+
+        <TextView
+            android:id="@+id/description_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description"
+            app:layout_constraintBottom_toTopOf="@id/btn_open_gallery"
+            android:text="@string/description_text_length"
+           />
+
+        <Button
+            android:id="@+id/btn_open_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_count"
+            app:layout_constraintBottom_toTopOf="@id/photo_blur"
+            android:text="@string/btn_open_gallery"
+            />
+
+        <ImageView
+            android:id="@+id/photo_blur"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/femme_montagne"
+            app:layout_constraintTop_toBottomOf="@id/btn_open_gallery"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="Image post"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            />
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/femme_montagne"
+            app:layout_constraintTop_toBottomOf="@id/btn_open_gallery"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="Image post"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitCenter"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include layout="@layout/bottom_app_bar" />

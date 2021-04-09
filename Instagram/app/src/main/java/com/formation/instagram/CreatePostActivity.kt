@@ -5,12 +5,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CreatePostActivity : AppCompatActivity(), View.OnClickListener {
 
     lateinit var bottomNavigationView: BottomNavigationView
+
+    lateinit var nickname: TextView
+    lateinit var description: EditText
+    lateinit var descriptionCount: TextView
+    lateinit var btnOpenGallery: Button
+    lateinit var photBlur: ImageView
+    lateinit var photo: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
