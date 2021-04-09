@@ -31,12 +31,13 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto, at autem corporis, cumque dolorem dolorum earum ipsa iste laudantium nam nemo officia officiis provident unde voluptatem voluptates. Modi, quo."
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto, at autem corporis, cumque dolorem dolorum earum ipsa iste laudantium nam nemo officia officiis provident unde voluptatem voluptates. Modi, quo."
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nickname"
             app:layout_constraintBottom_toTopOf="@id/description_count"
             android:maxLength="280"
+            android:maxLines="6"
             />
 
         <TextView
