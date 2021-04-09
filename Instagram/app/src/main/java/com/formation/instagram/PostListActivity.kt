@@ -11,6 +11,7 @@ import com.formation.instagram.adapters.PostAdapter
 import com.formation.instagram.models.PostModel
 import com.formation.instagram.models.UserModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PostListActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -20,11 +21,15 @@ class PostListActivity : AppCompatActivity(), View.OnClickListener {
 
     lateinit var bottomNavigationView: BottomNavigationView
 
+    lateinit var fab: FloatingActionButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post_list)
 
         bottomNavigationViewAction()
+        fab = findViewById(R.id.fab)
+        fab.setOnClickListener(this)
 
         fillPostList()
 
@@ -36,7 +41,12 @@ class PostListActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    override fun onClick(v: View?) {
+    override fun onClick(v: View) {
+
+        if (v.id == R.id.fab) {
+            val intent = Intent(this, CreatePostActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

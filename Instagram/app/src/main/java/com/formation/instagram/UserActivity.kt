@@ -11,12 +11,14 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class UserActivity : AppCompatActivity() {
+class UserActivity : AppCompatActivity(), View.OnClickListener {
 
     lateinit var userIntro : TextView
     lateinit var userEditText: EditText
@@ -31,6 +33,7 @@ class UserActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user)
 
         bottomNavigationViewAction()
+        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener(this)
 
         sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE)
 
@@ -62,6 +65,15 @@ class UserActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
             }
         })
+    }
+
+    override fun onClick(v: View) {
+
+        if (v.id == R.id.fab) {
+            val intent = Intent(this, CreatePostActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun getNicknameSharedPreference(): String? {

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Instagram">
-        <activity android:name=".UserActivity"></activity>
+        <activity android:name=".CreatePostActivity"></activity>
+        <activity android:name=".UserActivity" />
         <activity android:name=".PostListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
