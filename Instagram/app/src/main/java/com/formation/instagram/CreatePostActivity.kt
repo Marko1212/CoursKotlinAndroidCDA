@@ -13,10 +13,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.bumptech.glide.Glide
 import com.formation.instagram.utils.GlideBlurTransformation
 import com.formation.instagram.utils.PhotoUtils
@@ -69,8 +66,22 @@ class CreatePostActivity : AppCompatActivity(), View.OnClickListener {
                 startActivityForResult(gallery, PICK_IMAGE)
             }
 
+            R.id.fab -> {
+                validationPost()
+            }
+
         }
 
+    }
+
+    private fun validationPost() {
+        if(nickname.text.isNotEmpty() && description.text.length > 2 && photo.isDirty) {
+
+            Log.i("validationPost", "Tout est ok. Je vais pouvoir valider dans ma bdd")
+            return
+        }
+
+        Toast.makeText(nickname.context, "Il te manque des informations", Toast.LENGTH_SHORT).show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -90,7 +101,7 @@ class CreatePostActivity : AppCompatActivity(), View.OnClickListener {
 
             bitmap = PhotoUtils().resize(bitmap, 1200, 1200)
 
-            println("height: ${bitmap.height}, width: ${bitmap.width}, size: ${bitmap.byteCount}")
+          //  println("height: ${bitmap.height}, width: ${bitmap.width}, size: ${bitmap.byteCount}")
 
 
             photo.setImageBitmap(bitmap)
