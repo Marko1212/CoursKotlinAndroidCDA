@@ -3,6 +3,9 @@ package com.formation.instagram
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -14,6 +17,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
+import com.formation.instagram.utils.GlideBlurTransformation
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -72,6 +77,30 @@ class CreatePostActivity : AppCompatActivity(), View.OnClickListener {
 
         if (resultCode == RESULT_OK && requestCode == PICK_IMAGE) {
             Log.i("CreatePostActivity", "${data?.data}")
+
+            val photoURI = data?.data!!
+
+
+            val bitmap: Bitmap = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                ImageDecoder.decodeBitmap(ImageDecoder.createSource(this.contentResolver, photoURI))
+            } else {
+                MediaStore.Images.Media.getBitmap(this.contentResolver, photoURI)
+            }
+
+            photo.setImageBitmap(bitmap)
+
+            val context = photo.context
+
+            Glide.with(context)
+                .asBitmap()
+                .load(bitmap)
+                .transform(
+                    GlideBlurTransformation(context)
+                )
+                .into(photoBlur)
+
+
+
         }
     }
 
