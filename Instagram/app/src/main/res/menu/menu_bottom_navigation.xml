@@ -8,6 +8,7 @@
     android:icon="@drawable/ic_round_home_24"
     />
     <item
+        android:id="@+id/action_void"
         android:enabled="false"
         app:showAsAction="ifRoom"
         android:title=""
