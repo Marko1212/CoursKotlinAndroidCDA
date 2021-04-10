@@ -4,11 +4,11 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-const val API_KEY = "e640afc17bdef3719912f6e703bc1534"
+ const val API_KEY = "9289c923c40615789ad8475b87f1347f";
 
 interface HttpServiceMovie {
 
-    //e640afc17bdef3719912f6e703bc1534
+    //9289c923c40615789ad8475b87f1347f
     //https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
 
     @GET("/3/movie/popular")
