@@ -6,19 +6,32 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.formation.instagramfirebaseandroid.models.Post
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import kotlinx.android.synthetic.main.activity_posts.*
 
 private const val TAG = "PostsActivity"
 
 class PostsActivity : AppCompatActivity() {
 
     private lateinit var firestoreDb: FirebaseFirestore
+    private lateinit var posts: MutableList<Post>
+    private lateinit var adapter: PostsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_posts)
+
+        // Créer un fichier layout pour représenter un post - OK
+        // Créer une data source - OK
+        posts = mutableListOf()
+        // Créer l'adaptateur - OK
+        adapter = PostsAdapter(this, posts)
+        // Lier l'adaptateur avec le layout manager pour le Recycler View - OK
+        rvPosts.adapter = adapter
+        rvPosts.layoutManager = LinearLayoutManager(this)
 
         firestoreDb = FirebaseFirestore.getInstance()
         val postsReference = firestoreDb.collection("posts")
@@ -30,6 +43,9 @@ class PostsActivity : AppCompatActivity() {
                 return@addSnapshotListener
             }
             val postList = snapshot.toObjects(Post::class.java)
+            posts.clear()
+            posts.addAll(postList)
+            adapter.notifyDataSetChanged()
             for (post in postList) {
                 Log.i(TAG, "Post ${post}")
             }
