@@ -19,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
 
             // Vérification de l'authentification Firebase
 
+
         }
     }
 }
