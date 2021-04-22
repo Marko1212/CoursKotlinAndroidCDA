@@ -2,8 +2,12 @@ package com.formation.instagramfirebaseandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
+
+private const val TAG = "LoginActivity"
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +23,21 @@ class LoginActivity : AppCompatActivity() {
 
             // Vérification de l'authentification Firebase
 
-
+            val auth = FirebaseAuth.getInstance();
+            auth.signInWithEmailAndPassword(email, password).
+                    addOnCompleteListener {
+                        task -> if (task.isSuccessful) {
+                            Toast.makeText(this, "Succès!", Toast.LENGTH_SHORT).show()
+                            goPostsActivity();
+                    } else {
+                        Log.i(TAG, "L'identification avec l'email et le mot de passe a échoué", task.exception)
+                        Toast.makeText(this, "L'authentification a échoué", Toast.LENGTH_SHORT).show();
+                    }
+                    }
         }
+    }
+
+    private fun goPostsActivity() {
+        Log.i(TAG, "goPostsActivity");
     }
 }
