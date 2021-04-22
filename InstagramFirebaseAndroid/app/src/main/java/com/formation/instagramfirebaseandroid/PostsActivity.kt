@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import com.formation.instagramfirebaseandroid.models.Post
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 private const val TAG = "PostsActivity"
 
@@ -20,13 +22,16 @@ class PostsActivity : AppCompatActivity() {
 
         firestoreDb = FirebaseFirestore.getInstance()
         val postsReference = firestoreDb.collection("posts")
+            .limit(20)
+            .orderBy("creation_time_ms", Query.Direction.DESCENDING)
         postsReference.addSnapshotListener{ snapshot, exception ->
             if (exception !=null || snapshot == null) {
                 Log.e(TAG, "Une erreur est survenue lors de la requête des posts", exception)
                 return@addSnapshotListener
             }
-            for (document in snapshot.documents) {
-                Log.i(TAG, "Document ${document.id} : ${document.data}")
+            val postList = snapshot.toObjects(Post::class.java)
+            for (post in postList) {
+                Log.i(TAG, "Post ${post}")
             }
         }
 
