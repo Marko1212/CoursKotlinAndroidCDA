@@ -1,0 +1,7 @@
+Utilisateur 1 :
+marko@test.fr
+motdepasse
+
+Utilisateur 2 :
+samuel@test.fr
+motdepasse
