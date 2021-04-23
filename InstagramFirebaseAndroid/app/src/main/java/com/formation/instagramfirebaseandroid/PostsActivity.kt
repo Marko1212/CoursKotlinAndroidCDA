@@ -76,6 +76,11 @@ open class PostsActivity : AppCompatActivity() {
             }
         }
 
+        fabCreate.setOnClickListener {
+            val intent = Intent(this, CreateActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -93,5 +98,7 @@ open class PostsActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
+
+
 
 }
